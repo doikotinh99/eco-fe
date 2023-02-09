@@ -13,8 +13,8 @@ function Login() {
     const navigate = useNavigate()
     const [action, setAction] = React.useState(true);
     const [token, setToken] = useState(window.localStorage.getItem("token"))
-    useEffect(()=>{
-        if(token !== null){
+    useEffect(() => {
+        if (token !== null) {
             navigate('/')
         }
     }, [token, navigate])
@@ -23,23 +23,25 @@ function Login() {
         let email = document.getElementById('email-login').value;
         let pass = document.getElementById('pass-login').value;
         console.log(email, pass)
-        axiosInstance.post('/api/login', {
-            email: email,
-            password: pass
-        })
-            .catch((error) => {
-                setAction(error)
-            })
-            .then((response) => {
-                if (response['data'].token) {
-                    window.localStorage.setItem('token', response['data'].token)
-                    setToken(response['data'.token])
-                    // navigate('/', { state: { data: response['data'].token } })
-                } else {
-                    alert('Sai');
-                }
+        window.localStorage.setItem('token', email)
+        setToken(email)
+        // axiosInstance.post('/api/login', {
+        //     email: email,
+        //     password: pass
+        // })
+        //     .catch((error) => {
+        //         setAction(error)
+        //     })
+        //     .then((response) => {
+        //         if (response['data'].token) {
+        //             window.localStorage.setItem('token', response['data'].token)
+        //             setToken(response['data'.token])
+        //             // navigate('/', { state: { data: response['data'].token } })
+        //         } else {
+        //             alert('Sai');
+        //         }
 
-            })
+        //     })
     }
     return (
         <Container sx={{

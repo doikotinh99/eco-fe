@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
-import React, { useEffect } from "react";
+import { Box, Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 function Home() {
-    const token = window.localStorage.getItem("token")
+    const [token, setToken] = useState(window.localStorage.getItem("token"))
     const navigate = useNavigate()
     useEffect(() => {
         if (token === null) {
@@ -22,6 +22,12 @@ function Home() {
             }}
         >
             Home
+            <Button onClick={()=>{
+                localStorage.removeItem('token')
+                setToken(null)
+            }}>
+                Đăng xuất
+            </Button>
         </Box>
 
     )
