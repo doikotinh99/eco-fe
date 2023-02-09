@@ -1,7 +1,18 @@
-*{
+* {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
 }
-a{
+
+body {
+    background-color: #f5f5f5;
+}
+
+a {
     text-decoration: none;
+}
+
+.homePage {
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
 }

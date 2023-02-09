@@ -4,10 +4,6 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import { pink } from '@mui/material/colors';
 import { Link, useNavigate } from "react-router-dom";
 //component
 import Item from '../components/Item'
@@ -21,7 +17,7 @@ function Login() {
         if(token !== null){
             navigate('/')
         }
-    }, [token])
+    }, [token, navigate])
     document.title = "Login"
     const handleLogin = () => {
         let email = document.getElementById('email-login').value;

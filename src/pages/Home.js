@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { Box } from "@mui/material";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function Home() {
-    const [token, setToken] = useState(window.localStorage.getItem("token"))
+    const token = window.localStorage.getItem("token")
     const navigate = useNavigate()
-    useEffect(()=>{
+    useEffect(() => {
         if (token === null) {
             navigate('/login')
         }
-    }, [token])
+    }, [token, navigate])
     document.title = "restaurant"
 
     console.log(token)
     return (
-        <React.Fragment>
-            <h1>home</h1>
-        </React.Fragment>
+        <Box
+            sx={{
+                height: "1000px",
+                background: "red"
+            }}
+        >
+            Home
+        </Box>
+
     )
 }
 

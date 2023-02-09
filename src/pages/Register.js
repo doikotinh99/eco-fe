@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link, useNavigate } from "react-router-dom";
-import { axiosAuth, axiosInstance } from '../utills/axios'
+import { axiosInstance } from '../utills/axios'
 //component
 import Item from '../components/Item'
 import { Button } from "@mui/material";
@@ -14,8 +14,13 @@ import AlertSnackbars from "../components/AlertSnackBars";
 
 function Register() {
     const navigate = useNavigate();
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     document.title = "Register"
+    const token = (window.localStorage.getItem("token"))
+    useEffect(()=>{
+        if(token !== null){
+            navigate('/')
+        }
+    }, [token, navigate])
     const [alert, setAlert] = useState(false)
     const register = () => {
         let name = document.getElementById('name-regist').value
