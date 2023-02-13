@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
 import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-
+import PaymentIcon from '@mui/icons-material/Payment';
+import SettingsIcon from '@mui/icons-material/Settings';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 function Footer() {
     const [value, setValue] = React.useState('recents');
-
+    const navigate = useNavigate()
+    const param = useParams()
+    useLayoutEffect(() => {
+        let listParam = param["*"]?.split('/')
+        if (!listParam)
+            setValue('home')
+        else {
+            if (listParam[0] === 'thanh-toan')
+                setValue('payment')
+            if (listParam[0] === 'thong-ke')
+                setValue('report')
+            if (listParam[0] === 'cai-dat')
+                setValue('menu')
+        }
+    }, [param])
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     return (
         <BottomNavigation
             id="footer"
+            showLabels
             sx={{
                 position: "absolute",
                 bottom: "0px",
@@ -24,23 +40,60 @@ function Footer() {
                 borderLeft: 0,
                 borderBottom: 0
             }}
-            value={value} onChange={handleChange}>
+            value={value}
+            onChange={handleChange}
+        >
+
             <BottomNavigationAction
-                label="Recents"
-                value="recents"
-                icon={<RestoreIcon />}
+                value="home"
+                icon={
+                    <Link to="/">
+                        <div>
+                            <RestoreIcon />
+                            <span>Home</span>
+                        </div>
+                    </Link>
+                }
             />
+
+
+
             <BottomNavigationAction
-                label="Favorites"
                 value="favorites"
-                icon={<FavoriteIcon />}
+                icon={<Link to="/page">
+                    <div>
+                        <NewspaperIcon />
+                        <span>Trang</span>
+                    </div>
+                </Link>}
+            />
+
+            <BottomNavigationAction
+                value="report"
+                icon={<Link to="/thong-ke">
+                    <div>
+                        <BarChartIcon />
+                        <span>Thống kê</span>
+                    </div>
+                </Link>}
             />
             <BottomNavigationAction
-                label="Nearby"
-                value="nearby"
-                icon={<LocationOnIcon />}
+                value="payment"
+                icon={<Link to="/thanh-toan">
+                    <div>
+                        <PaymentIcon />
+                        <span>Thanh toán</span>
+                    </div>
+                </Link>}
             />
-            <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+            <BottomNavigationAction
+                value="menu"
+                icon={<Link to="/cai-dat">
+                    <div>
+                        <SettingsIcon />
+                        <span>Cài đặt</span>
+                    </div>
+                </Link>} />
         </BottomNavigation>
     );
 }

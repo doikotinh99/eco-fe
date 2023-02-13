@@ -21,7 +21,6 @@ function App() {
       height: "100vh",
       padding: "0px !important",
       position: "relative",
-      border: "1px solid #dcdcdc",
       borderRadius: "7px",
       overflow: "hidden"
     }}>

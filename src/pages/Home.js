@@ -12,8 +12,6 @@ function Home() {
         }
     }, [token, navigate])
     document.title = "restaurant"
-
-    console.log(token)
     return (
         <Box
             sx={{
@@ -22,12 +20,12 @@ function Home() {
             }}
         >
             Home
-            <Button onClick={()=>{
+            {/* <Button onClick={()=>{
                 localStorage.removeItem('token')
                 setToken(null)
             }}>
                 Đăng xuất
-            </Button>
+            </Button> */}
         </Box>
 
     )

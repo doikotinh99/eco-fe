@@ -48,7 +48,6 @@ function Login() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: "100vh",
             height: "100vh",
             margin: "auto"
         }}>
