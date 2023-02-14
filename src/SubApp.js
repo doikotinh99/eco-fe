@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Container from '@mui/material/Container';
 // scss
 import './App.css';
-import './user/assets/scss/app.scss';
+import './assets/scss/app.scss';
 import { Box } from '@mui/material';
 
 function SubApp() {

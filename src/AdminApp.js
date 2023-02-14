@@ -5,7 +5,7 @@ import Footer from './admin/parts/Footer';
 import Header from './admin/parts/Header';
 // scss
 import './App.css';
-import './admin/assets/scss/app.scss';
+import './assets/scss/admin.scss';
 import { styled } from '@mui/system';
 
 function AdminApp() {
