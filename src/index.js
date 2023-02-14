@@ -23,7 +23,7 @@ import AppAdmin from './AdminApp'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const subdomain = window.location.host.split('.')
 console.log(subdomain[0])
-if (subdomain.length === 1) {
+if (subdomain.length === 2 || subdomain[0] == 'localhost:3000') {
   root.render(
     <Router>
       <Routes>
