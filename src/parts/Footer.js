@@ -6,10 +6,9 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import SettingsIcon from '@mui/icons-material/Settings';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 function Footer() {
     const [value, setValue] = React.useState('recents');
-    const navigate = useNavigate()
     const param = useParams()
     useLayoutEffect(() => {
         let listParam = param["*"]?.split('/')
@@ -32,9 +31,10 @@ function Footer() {
             id="footer"
             showLabels
             sx={{
-                position: "absolute",
+                position: "fixed",
                 bottom: "0px",
-                width: "calc(100% )",
+                width: "100%",
+                maxWidth: '414px',
                 border: "1px solid #dcdcdc",
                 borderRight: 0,
                 borderLeft: 0,

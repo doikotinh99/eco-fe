@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Carousel from '../components/Carousel'
 
 function Home() {
     const [token, setToken] = useState(window.localStorage.getItem("token"))
@@ -15,17 +15,31 @@ function Home() {
     return (
         <Box
             sx={{
-                height: "1000px",
                 background: "red"
             }}
         >
-            Home
-            {/* <Button onClick={()=>{
+            <h1 style={{margin: '0pxnpm run'}}>Top</h1>
+            <div className="HomeCarousel">
+                <Carousel />
+            </div>
+            <div className="HomeCarousel">
+                <Carousel />
+            </div>
+            <div className="HomeCarousel">
+                <Carousel />
+            </div>
+            <div className="HomeCarousel">
+                <Carousel />
+            </div>
+            <div className="HomeCarousel">
+                <Carousel />
+            </div>
+            <Button onClick={() => {
                 localStorage.removeItem('token')
                 setToken(null)
             }}>
                 Đăng xuất
-            </Button> */}
+            </Button>
         </Box>
 
     )

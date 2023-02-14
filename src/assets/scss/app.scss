@@ -11,12 +11,6 @@ a {
     text-decoration: none;
 }
 
-.homePage {
-    &::-webkit-scrollbar {
-        width: 0px;
-    }
-}
-
 #footer {
 
 
@@ -56,5 +50,18 @@ a {
             }
         }
 
+    }
+}
+.HomeCarousel {
+    &>div{
+        position: relative;
+        &>div:last-child{
+            position: absolute;
+            bottom: 9px;
+            left: calc(50% - 32px);
+            padding: 0px;
+            background-color: #ffffff73;
+            border-radius: 3px;
+        }
     }
 }

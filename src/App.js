@@ -6,34 +6,37 @@ import Header from './parts/Header';
 // scss
 import './App.css';
 import './assets/scss/app.scss';
-import { Box } from '@mui/material';
+import { styled } from '@mui/system';
 
 function App() {
-  const [height, setHeightFT] = useState("100vh")
-  useEffect(()=>{
+  const [height, setHeightFT] = useState([100, 100])
+  const BoxMain = styled('div')({
+    paddingTop: height[1] + 'px',
+    paddingBottom: height[0] + 'px',
+  })
+  useEffect(() => {
     let ft = document.getElementById("footer")
-    setHeightFT(window.outerHeight - ft.clientHeight)
+    let hd = document.getElementById("header")
+    setHeightFT([ft.clientHeight, hd.clientHeight])
   }, [])
-  console.log(height)
+  // const main = document.getElementById('main')
+  // main.style.paddingTop = height[1] + 'px'
+  // main.style.paddingBottom = height[0] + 'px'
+
   return (
     <Container sx={{
       maxWidth: "414px !important",
-      height: "100vh",
       padding: "0px !important",
       position: "relative",
       borderRadius: "7px",
       overflow: "hidden"
     }}>
       <Header />
-      <Box
-        sx={{
-          height,
-          overflow: "scroll",
-        }}
-        className="homePage"
+      <BoxMain
+        id="main"
       >
         <Outlet />
-      </Box>
+      </BoxMain>
       <Footer />
     </Container>
   );

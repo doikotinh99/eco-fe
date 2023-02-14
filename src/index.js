@@ -12,18 +12,16 @@ import Error from './components/404';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="/" element={<App />}>
-          <Route path="" element={<Home />} />
-          <Route path="*" element={<Error />} />
-        </Route>
-      </Routes>
-    </Router>
-  </React.StrictMode>
+  <Router>
+    <Routes>
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+      <Route path="/" element={<App />}>
+        <Route path="" element={<Home />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function

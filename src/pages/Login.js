@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 //component
 import Item from '../components/Item'
 import { Button } from "@mui/material";
-import { axiosInstance } from "../utills/axios";
 function Login() {
     const navigate = useNavigate()
     const [action, setAction] = React.useState(true);
